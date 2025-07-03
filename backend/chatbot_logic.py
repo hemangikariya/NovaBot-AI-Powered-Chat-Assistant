@@ -34,7 +34,7 @@ def get_bot_response(user_input, context=""):
                 "text": "🧭 Please choose a topic first.",
                 "options": ["Main Menu"]
             }
-
+            
     if user_input in ["menu", "main menu", "go to main menu", "start"]:
         return {
             "text": "📋 Here's what I can help you with:",
@@ -43,67 +43,44 @@ def get_bot_response(user_input, context=""):
 
     if user_input in ["mca", "overview"]:
         return {
-            "text": "🎓 **MCA (Master of Computer Applications)** is a 2-year PG program focusing on software dev, AI, cloud, networks, and system design.\n\n✅ Was this helpful? (Yes/No)",
+            "text": "🎓 **MCA (Master of Computer Applications)** is a 2-year PG program focusing on software dev, AI, cloud, networks, and system design.\n✅ Was this helpful? (Yes/No)",
             "topic": "mca"
         }
 
     if any(k in user_input for k in ["fees", "fee", "cost", "structure"]):
-        return{
-            "text":'''💸 **MCA Fees**:\n
-        - Govt. Colleges: ₹20k–80k/year\n
-        - Private: ₹1L–2.5L/year\n
-        💡 Tip: Look for scholarships & state quota options.\n
-        ✅ Was this helpful? (Yes/No)''',
+        return {
+            "text": "💸 **MCA Fees**\n\n- Govt. Colleges: ₹20k–80k/year\n- Private: ₹1L–2.5L/year\n💡 Tip: Look for scholarships & state quota options.\n✅ Was this helpful? (Yes/No)",
             "topic": "fees"
         }
 
+
     if any(k in user_input for k in ["admission", "apply", "application"]):
         return {
-            "text": '''📥 **MCA Admission Process**:\n
-        - Via entrance exams (CMAT, NIMCET, ACPC, etc.)\n
-        - Applications usually open in May–July.\n
-        - Track your target college site for dates.\n
-        ✅ Was this helpful? (Yes/No)''',
+            "text": "📥 **MCA Admission Process**:\n- Via entrance exams (CMAT, NIMCET, ACPC, etc.)\n- Applications usually open in May–July.\n- Track your target college site for dates.\n✅ Was this helpful? (Yes/No)",
             "topic": "admission"
         }
 
     if any(k in user_input for k in ["hostel", "accommodation", "room"]):
         return {
-            "text": '''🏫 **Hostel Details**:\n
-        - Common amenities: Wi-Fi, mess, security, laundry\n
-        - Charges vary ₹30k–80k/year\n
-        - Early application is better!\n
-        ✅ Was this helpful? (Yes/No)''',
+            "text": "🏫 **Hostel Details**:\n- Common amenities: Wi-Fi, mess, security, laundry\n- Charges vary ₹30k–80k/year\n- Early application is better!\n✅ Was this helpful? (Yes/No)",
             "topic": "hostel"
         }
 
     if any(k in user_input for k in ["syllabus", "subjects", "course"]):
         return {
-            "text": '''📚 **MCA Syllabus Highlights**:\n
-        - Core: DSA, DBMS, OS, CN\n
-        - Tech: Python, Web Dev, Java, Android\n
-        - Advanced: AI, ML, Cloud (later sem)\n
-        ✅ Was this helpful? (Yes/No)''',
+            "text": "📚 **MCA Syllabus Highlights**:\n- Core: DSA, DBMS, OS, CN\n- Tech: Python, Web Dev, Java, Android\n- Advanced: AI, ML, Cloud (later sem)\n✅ Was this helpful? (Yes/No)",
             "topic": "hostel"
         }
 
     if any(k in user_input for k in ["placement", "job", "companies"]):
         return {
-            "text": '''💼 **Placements after MCA**:\n
-        - Recruiters: Infosys, TCS, Wipro, Cognizant, IBM\n
-        - Avg package: ₹4–8 LPA\n
-        - Skill + projects + internships = success!\n
-        ✅ Was this helpful? (Yes/No)''',
+            "text": "💼 **Placements after MCA**:\n- Recruiters: Infosys, TCS, Wipro, Cognizant, IBM\n- Avg package: ₹4–8 LPA\n- Skill + projects + internships = success!\n✅ Was this helpful? (Yes/No)",
             "topic": "hostel"
         }
 
-    if any(k in user_input for k in ["ai", "artificial intelligence", "machine learning", "career", "future", "scope"]):
+    if user_input in ["ai", "artificial intelligence", "machine learning", "career", "future", "scope"]:
         return {
-            "text": '''🧠 **AI/ML Career**:\n
-        - Start with Python → ML libraries (scikit-learn, \nTensorFlow)\n
-        - Build projects on datasets\n
-        - Roles: Data Scientist, ML Engineer, AI Developer\n
-        ✅ Was this helpful? (Yes/No)''',
+            "text": "🧠 **AI/ML Career** \n- Start with Python → ML libraries (scikit-learn, TensorFlow) \n- Build projects on datasets\n- Roles: Data Scientist, ML Engineer, AI Developer \n✅ Was this helpful? (Yes/No)",
             "topic": "hostel"
         }
 
@@ -123,17 +100,10 @@ def get_bot_response(user_input, context=""):
 
     if any(k in user_input for k in ["who are you", "what can you do", "help", "nova", "your name"]):
         return {
-            "text": '''👋 I'm **NovaBot**, your friendly virtual college assistant.\n
-        You can ask me about:\n
-        - MCA course & subjects\n
-        - Admission process\n
-        - Fees, hostel & placements\n
-        - AI/ML career roadmap\n
-        Type 'Main Menu' to see all options 🔁'''
+            "text": "👋 I'm **NovaBot**, your friendly virtual college assistant.\nYou can ask me about:\n- MCA course & subjects\n- Admission process\n- Fees, hostel & placements\n- AI/ML career roadmap\nType 'Main Menu' to see all options 🔁"
         }
 
     return {
         "text": "🤔 I didn’t quite get that. Select a topic below to continue.",
         "options": ["Main Menu", "MCA", "Admission", "Fees", "Placement", "AI/ML Career"]
     }
-
