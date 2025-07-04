@@ -1,19 +1,20 @@
 from flask import Flask, request, jsonify
 from chatbot_logic import get_bot_response
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
+@app.route("/", methods=["GET"])
 def home():
-    return "✅ NovaBot Backend is running"
+    return "✅ NovaBot Backend is Live!"
 
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
     message = data.get('message', '')
-    context = data.get('context', '')  
+    context = data.get('context', '') 
     response = get_bot_response(message, context)
 
     if isinstance(response, dict):
@@ -22,7 +23,9 @@ def chat():
             "options": response.get("options", []),
             "topic": response.get("topic", "")
         })
-        
+
     return jsonify({ "response": "Something went wrong!" })
+
 if __name__ == "__main__":
-    app.run(debug=True, host="localhost", port=5000)
+    port = int(os.environ.get("PORT", 10000))  
+    app.run(debug=False, host="0.0.0.0", port=port)
