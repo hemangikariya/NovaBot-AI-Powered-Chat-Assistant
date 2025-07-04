@@ -229,12 +229,7 @@
   }
 
     .chat-bubble {
-    max-width: 90%;
+    max-width: 70%;
     font-size: 14px;
-  }
-
-  .chat-window {
-    width: 100%;
-    height: 100vh;
   }
 }
