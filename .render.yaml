@@ -5,3 +5,12 @@ services:
     buildCommand: cd frontend && npm install && npm run build
     startCommand: cd frontend && npx serve -s build
     rootDir: .
+    plan: free
+
+  - type: web
+    name: novabot-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    rootDir: .
+    plan: free
