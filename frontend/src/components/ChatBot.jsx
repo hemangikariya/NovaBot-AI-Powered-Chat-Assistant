@@ -79,6 +79,15 @@ const ChatBot = () => {
     }
   };
 
+  const clearChat = () => {
+    setMessages([{ sender: "bot", text: "Hi there! 👋 I'm NovaBot. How can I assist you today?" }]);
+  };
+
+  const showHelp = () => {
+    const helpText = "You can ask me about:\n🔹 MCA details\n🔹 Admission process\n🔹 Fees, Hostel, Placement\n🔹 AI/ML Career tips!";
+    setMessages((prev) => [...prev, { sender: "bot", text: helpText }]);
+  };
+  
   return (
     <div className="chatbot-container">
       <div className="chat-window">
@@ -90,11 +99,8 @@ const ChatBot = () => {
 
         {menuOpen && (
           <div className="menu-dropdown">
-            <div>✏️ Change Name</div>
-            <div>📧 Email transcript</div>
-            <div>🔊 Sound On</div>
-            <div>🔲 Pop out widget</div>
-            <div>🔗 Add Chat to your website</div>
+            <div onClick={clearChat}>🧹 Clear Chat</div><hr />
+            <div onClick={showHelp}>❓ How to Use NovaBot</div>
           </div>
         )}
 
