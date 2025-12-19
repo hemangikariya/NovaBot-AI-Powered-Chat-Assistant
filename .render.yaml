@@ -1,0 +1,22 @@
+vservices:
+  - type: web
+    name: novabot-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+
+  - type: web
+    name: novabot-frontend
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build
+    plan: free
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        value: https://novabot-backend.onrender.com
